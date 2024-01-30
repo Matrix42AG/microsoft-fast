@@ -20,7 +20,7 @@ always-auth=true
 
 fs.writeFileSync(resolve(__dirname, "..", "..", ".npmrc"), content);
 
-const packages = ["fast-foundation"];
+const packages = ["web-components/fast-foundation"];
 
 for (const pkg of packages) {
     const pkgJson = require(`../../packages/${pkg}/package.json`);
