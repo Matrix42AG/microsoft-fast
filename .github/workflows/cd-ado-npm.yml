@@ -1,0 +1,30 @@
+name: Release NPM Packages to Matrix42 Azure DevOps
+
+on:
+  push:
+    tags: ['**']
+
+jobs:
+  Build_and_Publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          # https://github.com/actions/checkout/issues/701 https://github.com/actions/checkout/pull/579
+          fetch-depth: 0
+      - run: echo "VERSION=$(git describe --tags)" >> $GITHUB_ENV
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20.x
+      - uses: ponicode/azure-devops-npm-action@master
+        with:
+          organisation: 'matrix42'
+          project: 'Aurora'
+          registry: 'AURORA_NPM'
+          user: 'matrix42'
+          password: ${{ secrets.AURORA_NPM_TOKEN }}
+          email: 'npm requires email to be set but doesn''t use the value'
+      - run: sudo yarn global add lerna@5.5.
+      - run: yarn install --frozen-lockfile
+      - run: npm version $VERSION
+      - run: npm publish
