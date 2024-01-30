@@ -1,7 +1,8 @@
 const { resolve } = require("path");
 const fs = require("fs");
 
-const secret = process.argv[2];
+const version = process.argv[2];
+const secret = process.argv[3];
 
 const content = `registry=https://pkgs.dev.azure.com/matrix42/Aurora/_packaging/AURORA_NPM/npm/registry/ 
                         
@@ -18,3 +19,14 @@ always-auth=true
 `;
 
 fs.writeFileSync(resolve(__dirname, "..", "..", ".npmrc"), content);
+
+const packages = ["fast-foundation"];
+
+for (const pkg of packages) {
+    const pkgJson = require(`../../packages/${pkg}/package.json`);
+    pkgJson.version = version;
+    fs.writeFileSync(
+        resolve(__dirname, "..", "..", "packages", pkg, "package.json"),
+        JSON.stringify(pkgJson, null, 2)
+    );
+}
