@@ -1,11 +1,11 @@
 {
-  "name": "@microsoft/fast-foundation",
+  "name": "@matrix42/fast-foundation",
   "description": "A library of Web Component building blocks",
   "sideEffects": false,
   "version": "3.0.0-alpha.32",
   "author": {
-    "name": "Microsoft",
-    "url": "https://discord.gg/FcSNfg4"
+    "name": "Matrix42 GmbH",
+    "url": "https://github.com/Matrix42AG/microsoft-fast"
   },
   "homepage": "https://www.fast.design/",
   "license": "MIT",
