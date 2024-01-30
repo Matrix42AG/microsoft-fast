@@ -19,12 +19,5 @@ jobs:
       - run: sudo yarn global add lerna@5.5.2
       - run: yarn install --frozen-lockfile
       - run: npm version $VERSION --no-git-tag-version
-      - uses: ponicode/azure-devops-npm-action@master
-        with:
-          organisation: 'matrix42'
-          project: 'Aurora'
-          registry: 'AURORA_NPM'
-          user: 'matrix42'
-          password: ${{ secrets.AURORA_NPM_TOKEN }}
-          email: 'npm requires email to be set but doesn''t use the value'
+      - run: node generate-npmrc.js ${{ secrets.AURORA_NPM_TOKEN }}
       - run: npm publish
