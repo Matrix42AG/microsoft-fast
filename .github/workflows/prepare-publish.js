@@ -17,4 +17,15 @@ always-auth=true
 ; end auth token
 `;
 
-fs.writeFileSync(resolve(__dirname, "..", "..", ".npmrc"), content);
+fs.writeFileSync(
+    resolve(
+        __dirname,
+        "..",
+        "..",
+        "packages",
+        "web-components",
+        "fast-foundation",
+        ".npmrc"
+    ),
+    content
+);
