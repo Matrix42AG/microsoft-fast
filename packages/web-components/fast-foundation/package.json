@@ -7,15 +7,15 @@
     "name": "Matrix42 GmbH",
     "url": "https://github.com/Matrix42AG/microsoft-fast"
   },
-  "homepage": "https://www.fast.design/",
+  "homepage": "https://github.com/Matrix42AG/microsoft-fast",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Microsoft/fast.git",
+    "url": "git+https://github.com/Matrix42AG/microsoft-fast.git",
     "directory": "packages/web-components/fast-foundation"
   },
   "bugs": {
-    "url": "https://github.com/Microsoft/fast/issues/new/choose"
+    "url": "https://github.com/Matrix42AG/microsoft-fast/issues/new/choose"
   },
   "main": "dist/esm/index.js",
   "types": "dist/dts/index.d.ts",
