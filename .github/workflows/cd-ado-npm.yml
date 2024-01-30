@@ -20,4 +20,5 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: npm version $VERSION --no-git-tag-version
       - run: node generate-npmrc.js ${{ secrets.AURORA_NPM_TOKEN }}
+        working-directory: .github/workflows
       - run: npm publish
