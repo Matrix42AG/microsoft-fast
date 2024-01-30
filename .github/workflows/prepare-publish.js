@@ -18,12 +18,3 @@ always-auth=true
 `;
 
 fs.writeFileSync(resolve(__dirname, "..", "..", ".npmrc"), content);
-
-const packageJsonPath = resolve(__dirname, "..", "..", "package.json");
-const packageJsonContent = fs.readFileSync(packageJsonPath, "utf8");
-
-const json = JSON.parse(packageJsonContent);
-
-json.private = false;
-
-fs.writeFileSync(packageJsonPath, JSON.stringify(json, null, 2));
