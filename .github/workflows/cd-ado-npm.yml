@@ -19,6 +19,6 @@ jobs:
       - run: sudo yarn global add lerna@5.5.2
       - run: yarn install --frozen-lockfile
       - run: npm version $VERSION --no-git-tag-version
-      - run: node generate-npmrc.js ${{ secrets.AURORA_NPM_TOKEN }}
+      - run: node prepare-publish.js ${{ secrets.AURORA_NPM_TOKEN }}
         working-directory: .github/workflows
       - run: npm publish
