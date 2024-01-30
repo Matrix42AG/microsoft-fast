@@ -3,7 +3,11 @@ const fs = require("fs");
 
 const secret = process.argv[2];
 
-const content = `; begin auth token
+const content = `registry=https://pkgs.dev.azure.com/matrix42/Aurora/_packaging/AURORA_NPM/npm/registry/ 
+                        
+always-auth=true
+
+; begin auth token
 //pkgs.dev.azure.com/matrix42/Aurora/_packaging/AURORA_NPM/npm/registry/:username=matrix42
 //pkgs.dev.azure.com/matrix42/Aurora/_packaging/AURORA_NPM/npm/registry/:_password=${secret}
 //pkgs.dev.azure.com/matrix42/Aurora/_packaging/AURORA_NPM/npm/registry/:email=npm requires email to be set but doesn't use the value
