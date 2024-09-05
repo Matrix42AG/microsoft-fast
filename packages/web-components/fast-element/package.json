@@ -1,20 +1,20 @@
 {
-  "name": "@microsoft/fast-element",
+  "name": "@matrix42/fast-element",
   "description": "A library for constructing Web Components",
   "version": "2.0.0-beta.26",
   "author": {
-    "name": "Microsoft",
-    "url": "https://discord.gg/FcSNfg4"
+    "name": "Matrix42 GmbH",
+    "url": "https://github.com/Matrix42AG/microsoft-fast"
   },
-  "homepage": "https://www.fast.design/",
+  "homepage": "https://github.com/Matrix42AG/microsoft-fast",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Microsoft/fast.git",
-    "directory": "packages/web-components/fast-element"
+    "url": "git+https://github.com/Matrix42AG/microsoft-fast.git",
+    "directory": "packages/web-components/fast-foundation"
   },
   "bugs": {
-    "url": "https://github.com/Microsoft/fast/issues/new/choose"
+    "url": "https://github.com/Matrix42AG/microsoft-fast/issues/new/choose"
   },
   "type": "module",
   "main": "dist/esm/index.js",

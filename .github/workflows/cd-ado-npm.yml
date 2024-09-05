@@ -22,3 +22,5 @@ jobs:
         working-directory: .github/workflows
       - run: npm publish
         working-directory: packages/web-components/fast-foundation
+      - run: npm publish
+        working-directory: packages/web-components/fast-element

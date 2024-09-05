@@ -20,13 +20,18 @@ always-auth=true
 
 fs.writeFileSync(resolve(__dirname, "..", "..", ".npmrc"), content);
 
-const packages = ["web-components/fast-foundation"];
+const deps = ["@matrix42/fast-element"];
+const packages = ["web-components/fast-element", "web-components/fast-foundation"];
 
 for (const pkg of packages) {
     const pkgJson = require(`../../packages/${pkg}/package.json`);
     pkgJson.version = version;
+    for (const dep in pkgJson.dependencies) {
+        if (!deps.includes(dep)) continue;
+        pkgJson.dependencies[dep] = version;
+    }
     fs.writeFileSync(
         resolve(__dirname, "..", "..", "packages", pkg, "package.json"),
-        JSON.stringify(pkgJson, null, 2)
+        JSON.stringify(pkgJson, null, 2),
     );
 }
