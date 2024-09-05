@@ -92,7 +92,8 @@ export type TemplateValue<TSource, TParent = any> =
     | Expression<TSource, any, TParent>
     | Binding<TSource, any, TParent>
     | HTMLDirective
-    | CaptureType<TSource, TParent>;
+    | CaptureType<TSource, TParent>
+    | string;
 
 const noFactories = Object.create(null);
 
@@ -282,7 +283,9 @@ export class ViewTemplate<TSource = any, TParent = any>
 
             html += currentString;
 
-            if (isFunction(currentValue)) {
+            if (typeof currentValue === 'string') {
+                html += currentValue;
+            } else if (isFunction(currentValue)) {
                 currentValue = new HTMLBindingDirective(oneWay(currentValue));
             } else if (currentValue instanceof Binding) {
                 currentValue = new HTMLBindingDirective(currentValue);
@@ -291,12 +294,14 @@ export class ViewTemplate<TSource = any, TParent = any>
                 currentValue = new HTMLBindingDirective(oneTime(() => staticValue));
             }
 
-            html += createHTML(
-                currentValue as HTMLDirective,
-                currentString,
-                add,
-                definition
-            );
+            if (typeof currentValue !== 'string') {
+                html += createHTML(
+                    currentValue as HTMLDirective,
+                    currentString,
+                    add,
+                    definition
+                );
+            }
         }
 
         return new ViewTemplate<TSource, TParent>(
